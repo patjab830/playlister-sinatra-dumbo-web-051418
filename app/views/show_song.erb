@@ -1,0 +1,5 @@
+<%= @song.first.name %><br>
+<a href="/artists/<%= @song.first.artist.slug %>"><%= @song.first.artist.name %><br></a>
+<% @song.first.genres.map do |genre| %>
+<a href="/genres/<%= genre.slug %>"><%= genre.name %><br></a>
+<%  end %><br>
