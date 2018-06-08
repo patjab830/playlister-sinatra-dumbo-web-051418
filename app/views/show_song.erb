@@ -3,3 +3,8 @@
 <% @song.first.genres.map do |genre| %>
 <a href="/genres/<%= genre.slug %>"><%= genre.name %><br></a>
 <%  end %><br>
+
+<form action="/songs/:slug/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">(needs debugging)
+</form>

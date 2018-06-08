@@ -1,7 +1,13 @@
+<!-- Doesn't work with genres -->
 <form method="POST" action="/songs">
   <p>Song Name: <input type="text" name="song[name]" id="Name"/></p>
-  <input type="submit" id="submit">
+  <p>
+    Artist: <input type="text" name="song[artist]"><br />
+  </p>
+
+  <p>Genres needs debugging:</p>
   <%@genres.each do |genre|%>
-    <input type="checkbox" id="<%= genre.name %>">
+    <input type="checkbox" id="<%= genre.name %>" name="song[genres]" value="<%= genre.id %>"> <%= genre.name %><br>
   <% end %>
+  <input type="submit" id="submit">
 </form>

@@ -10,10 +10,11 @@ class Song < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     #Song.find_by(name: slug.split("-").map {|name| name.capitalize}.join(" "))
-    Song.where("lower(name) = ?", unslug(slug))
+    # Song.where("lower(name) = ?", unslug(slug))
+    Song.where("lower(name) like ?", slug.gsub('-','%'))
   end
 
-  def self.unslug(slug)
-    slug.split("-").map {|name| name}.join(" ")
-  end
+  # def self.unslug(slug)
+  #   slug.split("-").map {|name| name}.join(" ")
+  # end
 end
